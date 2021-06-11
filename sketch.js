@@ -52,7 +52,6 @@ function keyPressed() {
 
 function score() {
   let score = 0;
-  if 
 }
 
 /* function if coins = points if bugs less points */
