@@ -51,6 +51,10 @@ function keyPressed() {
 
 /* function random coins */
 
+function score() {
+  let score = 0;
+}
+
 /* function if coins = points if bugs less points */
 
 /* function if coins show message, continue game */
