@@ -5,7 +5,7 @@ class Coin {
     this.x = width;
     this.y = ground - coinImg.height;
   }
-
+ 
   move() {
     this.x -= 9 ;
   }
