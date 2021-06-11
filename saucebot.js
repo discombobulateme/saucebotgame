@@ -1,14 +1,24 @@
+const STATES = {
+  RUN: 0,
+  JUMP: 1,
+}
 
 class SauceBot {
   constructor() {
     const ground = height - 20;
 
     this.r = 100; /* size */
-    this.x = 100;
-    this.y = height - this.r;
+    this.x = 100; 
     this.y = ground - sauceBotImg.height;
     this.vy = 0; /* Speed along the y axis */
     this.gravity = 3; /* Adjusts the speed of the moving SauceBot */
+    
+    this.bot = createSprite(this.x, this.y, this.r, this.r);
+
+    this.bot.addAnimation('run', './assets/saucebot_run/3.png', './assets/saucebot_run/2.png', './assets/saucebot_run/1.png', './assets/saucebot_run/2.png');
+    this.bot.addAnimation('jump', './assets/saucebot_run/jump.png');
+    this.state = STATES.RUN;
+
   }
 /* Instant force to push it up */
   jump() {
@@ -32,10 +42,19 @@ class SauceBot {
   }
 
   show() {
-    image(sauceBotImg, this.x, this.y, this.r);
+    if (this.vy < 0) {
+      this.bot.changeAnimation('jump')
+    } else {
+      this.bot.changeAnimation('run')
+    }
+
+    this.bot.position.y = this.y;
+    // this.bot.changeSprite('running');
 
     // fill(255, 50);
     // ellipseMode(CORNER);
     // ellipse(this.x, this.y, this.r, this.r);
+    drawSprites();
   }
 }
+ 

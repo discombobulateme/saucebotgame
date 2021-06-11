@@ -14,7 +14,6 @@ function preload() {
   };
   soundClassifier = ml5.soundClassifier('SpeechCommands18w', options);
   sauceBotImg = loadImage('saucebot1.png');
-  sauceBotRun = loadAnimation('./assets/saucebot_run/1.png', './assets/saucebot_run/2.png', './assets/saucebot_run/3.png')
   bugImg = loadImage('bug1.png');
   coinImg = loadImage('coin.png');
   backgroundImg = loadImage('background-fix.png');
@@ -51,9 +50,9 @@ function keyPressed() {
 
 /* function random coins */
 
-function score() {
-  let score = 0;
-}
+// function score() {
+//   let score = 0;
+// }
 
 /* function if coins = points if bugs less points */
 
@@ -71,7 +70,7 @@ function draw() {
   background("fff");
   background(backgroundImg);
   for (let b of bugs) {
-    b.move();
+    b.move();   
     b.show();
     if (saucebot.hits(b)) {
       score -=1;
