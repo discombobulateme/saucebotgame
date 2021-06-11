@@ -1,8 +1,12 @@
+
 class SauceBot {
   constructor() {
+    const ground = height - 20;
+
     this.r = 100; /* size */
-    this.x = 50;
+    this.x = 100;
     this.y = height - this.r;
+    this.y = ground - sauceBotImg.height;
     this.vy = 0; /* Speed along the y axis */
     this.gravity = 3; /* Adjusts the speed of the moving SauceBot */
   }
@@ -28,7 +32,7 @@ class SauceBot {
   }
 
   show() {
-    image(sauceBotImg, this.x, this.y, this.r, this.r);
+    image(sauceBotImg, this.x, this.y, this.r);
 
     // fill(255, 50);
     // ellipseMode(CORNER);

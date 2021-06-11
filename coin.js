@@ -1,9 +1,9 @@
-class Bug {
+class Coin {
   constructor() {
     const ground = height - 20;
     // this.r = 75;
     this.x = width;
-    this.y = ground - bugImg.height;
+    this.y = ground - coinImg.height;
   }
 
   move() {
@@ -11,7 +11,7 @@ class Bug {
   }
 
   show() {
-    image(bugImg, this.x, this.y);
+    image(coinImg, this.x, this.y);
 
     // fill(255, 50);
     // ellipseMode(CORNER);
