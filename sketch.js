@@ -68,10 +68,11 @@ function draw() {
   if (random(2) < 0.005) {
     coins.push(new Coin());
   }
-
+ 
   background("fff"); /* Without this, bot and bugs have a trace */
   background(backgroundImg);
-  for (let b of bugs) {
+
+  bugs.forEach((b) => {
     b.move();
     b.show();
     if (saucebot.hits(b)) {
@@ -79,9 +80,9 @@ function draw() {
       // noLoop();
     }
     // console.log('score = ', score);
-  }
+  })
 
-  for (let c of coins) {
+  coins.forEach((c) => {
     c.move();
     c.show();
     if (saucebot.hits(c)) {
@@ -89,8 +90,10 @@ function draw() {
       console.log(c);
       // loop();
     }
-    console.log('score ',score)
-  }
+  })
+
+  textSize(32);
+  text(`Score: ${score}`, width - 200, 50)
 
   if (score < 0) {
     background(gameOverImg)
