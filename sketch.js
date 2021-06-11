@@ -5,6 +5,7 @@ let coinImg;
 let backgroundImg;
 let bugs = [];
 let coins = [];
+let score = 0;
 let soundClassifier;
 
 function preload() {
@@ -69,21 +70,23 @@ function draw() {
 
   background("fff");
   background(backgroundImg);
-  // for (let b of bugs) {
-  //   b.move();
-  //   b.show();
-  //   if (saucebot.hits(b)) {
-  //     console.log('game over');
-  //     noLoop();
-  //   }
-  // }
+  for (let b of bugs) {
+    b.move();
+    b.show();
+    if (saucebot.hits(b)) {
+      score -=1;
+      console.log('game over');
+      // noLoop();
+    }
+  }
 
   for (let c of coins) {
     c.move();
     c.show();
     if (saucebot.hits(c)) {
+      score += 1;
       console.log('score');
-      loop();
+      // loop();
     }
   }
 
