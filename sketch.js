@@ -2,6 +2,7 @@ let saucebot;
 let sauceBotImg;
 let bugImg;
 let coinImg;
+let gameOverImg;
 let backgroundImg;
 let bugs = [];
 let coins = [];
@@ -16,6 +17,7 @@ function preload() {
   sauceBotImg = loadImage('saucebot1.png');
   bugImg = loadImage('bug1.png');
   coinImg = loadImage('coin.png');
+  gameOverImg = loadImage('gameOverImg.png')
   backgroundImg = loadImage('background-fix.png');
 }
 
@@ -67,16 +69,16 @@ function draw() {
     coins.push(new Coin());
   }
 
-  background("fff");
+  background("fff"); /* Without this, bot and bugs have a trace */
   background(backgroundImg);
   for (let b of bugs) {
     b.move();
     b.show();
     if (saucebot.hits(b)) {
       score -=1;
-      console.log('game over');
       // noLoop();
     }
+    // console.log('score = ', score);
   }
 
   for (let c of coins) {
@@ -84,9 +86,15 @@ function draw() {
     c.show();
     if (saucebot.hits(c)) {
       score += 1;
-      console.log('score');
+      console.log(c);
       // loop();
     }
+    console.log('score ',score)
+  }
+
+  if (score < 0) {
+    background(gameOverImg)
+    noLoop()
   }
 
   saucebot.show();
