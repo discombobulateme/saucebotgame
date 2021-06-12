@@ -17,7 +17,7 @@ function preload() {
   sauceBotImg = loadImage('saucebot1.png');
   bugImg = loadImage('bug1.png');
   coinImg = loadImage('coin.png');
-  gameOverImg = loadImage('gameOverImg.png')
+  gameOverImg = loadImage('gameOver.png')
   backgroundImg = loadImage('background-fix.png');
 }
 
@@ -68,7 +68,7 @@ function draw() {
   if (random(2) < 0.005) {
     coins.push(new Coin());
   }
- 
+
   background("fff"); /* Without this, bot and bugs have a trace */
   background(backgroundImg);
 
@@ -96,6 +96,7 @@ function draw() {
   text(`Score: ${score}`, width - 200, 50)
 
   if (score < 0) {
+    // saucebot.STATE = 2;
     background(gameOverImg)
     noLoop()
   }
