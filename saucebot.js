@@ -1,6 +1,7 @@
 const STATES = {
   RUN: 0,
   JUMP: 1,
+  GAMEOVER: 2,
 }
 
 class SauceBot {
@@ -17,7 +18,11 @@ class SauceBot {
 
     this.bot.addAnimation('run', './assets/saucebot_run/3.png', './assets/saucebot_run/2.png', './assets/saucebot_run/1.png', './assets/saucebot_run/2.png');
     this.bot.addAnimation('jump', './assets/saucebot_run/jump.png');
+
+    this.bot.addAnimation('gameOver', 'gameOverImg.png')
+
     this.state = STATES.RUN;
+    this.state = STATES.GAMEOVER;
 
   }
 /* Instant force to push it up */
@@ -32,7 +37,7 @@ class SauceBot {
     let y1 = this.y + this.r * 0.5;
     let x2 = bug.x + bug.r * 0.5;
     let y2 = bug.y + bug.r * 0.5;
-    
+
     return collideCircleCircle(x1, y1, this.r, x2, y2, bug.r);
   }
 
